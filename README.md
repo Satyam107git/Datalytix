@@ -86,11 +86,11 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Satyam107git/Datalytix
+    git clone https://github.com/Satyam107git/Datalytix.git
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd datalytix-dashboard
+    cd datalytix
     ```
 3.  **Install NPM packages:**
     ```bash
