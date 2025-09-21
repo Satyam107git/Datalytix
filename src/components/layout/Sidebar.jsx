@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiHome, FiBox, FiUsers, FiLayout, FiBriefcase, FiX } from 'react-icons/fi';
-import DatalytixLogo from '../../assets/images/logo.png';
-
+import DatalytixLogoLight  from '../../assets/images/logo.png';
+import DatalytixLogoDark  from '../../assets/images/logo-dark.png';
+import { useTheme } from '../../hooks/useTheme';
 
 const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
+  const { theme } = useTheme();
   const navLinkClasses = "flex items-center px-4 py-2.5 rounded-lg text-muted hover:bg-[var(--bg-main)] hover:text-foreground transition-colors";
   const activeLinkClasses = "bg-accent text-white";
 
@@ -16,9 +18,12 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
       ></div>
 
       <aside className={`bg-card border-r border-border p-5 flex-shrink-0 w-64 z-40 fixed lg:relative lg:translate-x-0 h-full transition-transform transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="flex justify-between items-center mb-8">
-          {/* <div className="text-2xl font-bold text-foreground">Datalytix</div> */}
-          <img src={DatalytixLogo} alt="Datalytix Logo" className="w-64" /> 
+        <div className="flex justify-between items-center mb-8">  
+          <img 
+            src={theme === 'light' ? DatalytixLogoLight : DatalytixLogoDark} 
+            alt="Datalytix Logo" 
+            className="w-64" 
+          />
           <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-muted">
             <FiX size={24} />
           </button>

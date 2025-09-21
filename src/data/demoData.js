@@ -1,4 +1,3 @@
-// Mock data for charts
 export const chartData = [
   { name: 'Jan', actual: 4000, projection: 2400 },
   { name: 'Feb', actual: 3000, projection: 1398 },
@@ -17,8 +16,7 @@ export const revenueData = [
   { name: 'Sat', currentWeek: 2390, previousWeek: 3800 },
   { name: 'Sun', currentWeek: 3490, previousWeek: 4300 },
 ];
-
-// Mock data for orders
+ 
 export const orderData = [
     { id: '#CM9801', user: 'Natali Craig', project: 'Landing Page', address: 'Meadow Lane Oakland', date: 'Just now', status: 'In Progress' },
     { id: '#CM9802', user: 'Kate Morrison', project: 'CRM Admin pages', address: 'Larry San Francisco', date: 'A minute ago', status: 'Complete' },
@@ -31,8 +29,7 @@ export const orderData = [
     { id: '#CM9809', user: 'Liam Vella', project: 'UX Research', address: 'Parker Rd. Allentown', date: 'Feb 8, 2023', status: 'Approved' },
 ];
 
-
-// Mock data for right sidebar
+ 
 export const notifications = [
     { id: 1, user: 'System', text: 'You have a bug that needs to be fixed.', time: 'Just now' },
     { id: 2, user: 'System', text: 'New user registered.', time: '59 minutes ago' },
@@ -56,12 +53,11 @@ export const topProductsData = [
 ];
 
 export const totalSalesData = [
-  { name: 'Direct', value: 300.56, color: '#6366F1' },
+  { name: 'Direct', value: 300.56, color: '#9CA3AF' },
   { name: 'Affiliate', value: 135.18, color: '#A7F3D0' },
   { name: 'Sponsored', value: 154.02, color: '#A5B4FC' },
   { name: 'E-mail', value: 48.96, color: '#BAE6FD' },
 ];
-
  
  
 export const locationMarkers = [

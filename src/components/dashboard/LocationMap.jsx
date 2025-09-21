@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
@@ -14,7 +13,7 @@ const LocationMap = () => {
     <div className="bg-card rounded-xl border border-border shadow-sm p-5">
       <h4 className="text-lg font-semibold mb-4">Revenue by Location</h4>
       
-      <div data-tooltip-id="map-tooltip" className="w-full h-80">
+      <div data-tooltip-id="map-tooltip" className="w-full h-24">
         <ComposableMap projectionConfig={{ scale: 160 }}>
           <ZoomableGroup center={[0, 0]} zoom={1}>
             <Geographies geography={mapData}>
