@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiArrowUp, FiArrowDown } from 'react-icons/fi';
 
+// Reusable component that accepts props to display a statistic.
 const StatCard = ({ title, value, change, isPositive, icon }) => {
   const changeColor = isPositive ? 'text-green-500' : 'text-red-500';
   return (

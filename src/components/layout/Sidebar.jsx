@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiHome, FiBox, FiUsers, FiLayout, FiBriefcase, FiX } from 'react-icons/fi';
+import { FiHome, FiBox, FiUsers, FiLayout, FiBriefcase, FiX  } from 'react-icons/fi';
+import { BiSolidUserAccount } from "react-icons/bi";
+import { IoMdBook } from "react-icons/io";
+import { MdOutlineCorporateFare, MdPostAdd  } from "react-icons/md";
 import DatalytixLogoLight  from '../../assets/images/logo.png';
 import DatalytixLogoDark  from '../../assets/images/logo-dark.png';
 import { useTheme } from '../../hooks/useTheme';
@@ -36,9 +39,13 @@ const Sidebar = ({ isSidebarOpen, setSidebarOpen }) => {
           <NavSection title="Dashboards">
             <NavLink to="/dashboards/default" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><FiLayout /> <span className="ml-3">Default</span></NavLink>
             <NavLink to="/orders" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><FiBox /> <span className="ml-3">Order List</span></NavLink>
+            <NavLink to="/online-courses" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><IoMdBook /> <span className="ml-3">Online Courses</span></NavLink>
           </NavSection>
            <NavSection title="Pages">
             <NavLink to="/user-profile" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><FiUsers /> <span className="ml-3">User Profile</span></NavLink>
+            <NavLink to="/account" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><BiSolidUserAccount /> <span className="ml-3">Account</span></NavLink>
+            <NavLink to="/corporate" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><MdOutlineCorporateFare  /> <span className="ml-3">Corporate</span></NavLink>
+            <NavLink to="/blog" className={({isActive}) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}><MdPostAdd /> <span className="ml-3">Blog</span></NavLink>
           </NavSection>
         </nav>
       </aside>

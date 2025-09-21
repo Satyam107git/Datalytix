@@ -4,11 +4,15 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 import RightSidebar from './RightSidebar';
 
+// This is the main Layout component that wraps every page of the application
 const Layout = () => {
+  // State to manage the visibility of the left sidebar on mobile
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  // State to manage the visibility of the right sidebar on mobile
   const [isRightSidebarOpen, setRightSidebarOpen] = useState(false);
+   // Get the current location object, which contains information like the pathname
   const location = useLocation();
-
+ // This is used to conditionally show or hide the RightSidebar depending on whether it is on main dashboard pg or not
   const showRightSidebarOnPage = location.pathname === '/dashboards/default';
 
   return (

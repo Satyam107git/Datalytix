@@ -7,9 +7,10 @@ import { useTheme } from '../../hooks/useTheme';
 
 const LocationMap = () => {
   const [tooltipContent, setTooltipContent] = useState('');
+  // Calculate the maximum revenue from the data and round it up to the nearest 10,000
   const maxRevenue = Math.ceil(Math.max(...locationMarkers.map(loc => loc.revenue)) / 10000) * 10000;
   const { theme } = useTheme();
-
+// Define the map's color based on the current theme
   const mapFillColor = theme === 'dark' ? '#374151' : 'var(--bg-main)';
   const mapStrokeColor = theme === 'dark' ? '#4B5563' : 'var(--border-color)';
   const markerFillColor = theme === 'dark' ? '#F9FAFB' : '#111827';
@@ -19,7 +20,8 @@ const LocationMap = () => {
   return (
     <div className="bg-card rounded-xl border border-border shadow-sm p-5">
       <h4 className="text-lg font-semibold mb-4">Revenue by Location</h4>
-
+    
+    {/* Container for the map, with a fixed height and tooltip connection */}
       <div data-tooltip-id="map-tooltip" className="w-full h-24">
         <ComposableMap projectionConfig={{ scale: 160 }}>
           <ZoomableGroup center={[0, 0]} zoom={1}>
@@ -36,6 +38,7 @@ const LocationMap = () => {
                 ))
               }
             </Geographies>
+             {/* Loop through our data to render a <Marker> for each location */}
             {locationMarkers.map(({ name, coordinates }) => (
               <Marker key={name} coordinates={coordinates}>
                 <g transform="translate(-12, -12)"> 
@@ -47,9 +50,11 @@ const LocationMap = () => {
           </ZoomableGroup>
         </ComposableMap>
       </div>
+       {/* The tooltip component that displays the 'tooltipContent' */}
       <ReactTooltip id="map-tooltip" content={tooltipContent} />
-
+      {/* Container for the list of locations and their progress bars */}
       <div className="space-y-4 mt-20 mb-5">
+         {/* Loop through the data to create a list item for each location */}
         {locationMarkers.map((location) => (
           <div key={location.name}>
             <div className="flex justify-between items-center mb-1">
@@ -58,6 +63,7 @@ const LocationMap = () => {
                 ${(location.revenue / 1000).toFixed(0)}K
               </span>
             </div>
+            {/* The background of the progress bar */}
             <div className="w-full bg-[var(--bg-main)] rounded-full h-1.5">
               <div className="bg-accent h-1.5 rounded-full" style={{ width: `${(location.revenue / maxRevenue) * 100}%` }}></div>
             </div>

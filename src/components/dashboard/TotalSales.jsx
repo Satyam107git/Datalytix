@@ -3,8 +3,9 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { totalSalesData } from '../../data/demoData';
 
 const TotalSales = () => {
+   // Create a state variable to store the percentage string of the hovered slice
   const [activePercentage, setActivePercentage] = useState('');
-
+ // Calculate the total sum of all sales values to use for the percentage calculation
   const total = totalSalesData.reduce((sum, entry) => sum + entry.value, 0);
 
   return (
@@ -14,6 +15,7 @@ const TotalSales = () => {
       <div className="w-full h-48 relative flex items-center justify-center ">
         <ResponsiveContainer>
           <PieChart>
+            {/* The main Pie component that defines the donut chart */}
             <Pie
               data={totalSalesData}
               cx="50%"
@@ -26,15 +28,18 @@ const TotalSales = () => {
               startAngle={90}
               endAngle={450}
             >
+               {/* Loop through the data to create a <Cell> for each slice */}
               {totalSalesData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={entry.color}
                   stroke={entry.color}
+                  // Event handler for when the mouse enters a slice
                   onMouseEnter={() => {
                     const percentage = ((entry.value / total) * 100).toFixed(1);
                     setActivePercentage(`${percentage}%`);
                   }}
+                  // Event handler for when the mouse leaves a slice
                   onMouseLeave={() => {
                     setActivePercentage('');
                   }}
@@ -43,16 +48,17 @@ const TotalSales = () => {
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-
+    {/* conditionally rendered, appears if 'activePercentage' is not empty. */}
         {activePercentage && ( 
           <div className="absolute flex items-center justify-center text-foreground text-lg font-semibold pointer-events-none">
             {activePercentage}
           </div>
         )}
-
       </div>
 
+   {/* Container for our custom legend below the chart */}
       <div className="mt-4 space-y-2">
+         {/* Loop through the data to create a legend item for each category */}
         {totalSalesData.map(entry => (
           <div key={entry.name} className="flex justify-between items-center text-sm">
             <div className="flex items-center">
